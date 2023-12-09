@@ -8,7 +8,7 @@ import cl.inacap.digitalpro.model.Producto;
 public class Start {
 	static JSONObject obj = new JSONObject(); //Este objeto permite almacenar un dato en el archivo Json.
 	static Scanner sc = new Scanner(System.in);
-	static String compruebaLetras[] = {"A", "B", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "�", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+	static String compruebaLetras[] = {"A", "B", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 	static String compruebaNumeros[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 	static Producto lista[]=new Producto[1000000];
 	static String codigo = "";
@@ -22,7 +22,7 @@ public class Start {
 	static String rutaJson = "";
 	
 	
-	//Menu de navegaci�n.
+	//Menu de navegación.
 	public static boolean menu() { 
 		boolean continuar = true;
 		System.out.println("1. Ingresar producto");
@@ -53,14 +53,14 @@ public class Start {
 	@SuppressWarnings("unchecked")
 	public static void ingresarProducto() { 
 		
-		//Proceso de ingreso y validaci�n del c�digo del producto.
+		//Proceso de ingreso y validación del código del producto.
 		while (true) {
 			
 			boolean salir = false;
 			
 			//Se verifica que se ingrese un codigo con 7 caracteres exactos.
 			while (true){
-				System.out.println("Ingrese el c�digo del producto porfavor, ejemplo: AA-9999");
+				System.out.println("Ingrese el código del producto porfavor, ejemplo: AA-9999");
 				codigo = sc.nextLine().trim();
 				if (codigo.length() != 7) {
 					System.out.println("Su codigo no es valido, ingreselo nuevamente");
@@ -75,18 +75,18 @@ public class Start {
 			
 					for (int j = 0; j < compruebaLetras.length; j++) { //Este bucle for anidado solo sirve para comprobar las primeras 2 letras del string llamado Codigo.
 						if (i == 0) { //Comprueba la posicion 0 del string llamado Codigo. 
-							if (compruebaLetras[j].equals(Character.toString(codigo.charAt(0)))) { //Si el indice del array es igual a la posici�n del string el contador aumtenta.
+							if (compruebaLetras[j].equals(Character.toString(codigo.charAt(0)))) { //Si el indice del array es igual a la posición del string el contador aumtenta.
 								contador++;
 							}
 						}
 						if (i == 1) {
-							if (compruebaLetras[j].equals(Character.toString(codigo.charAt(1)))) { //Si el indice del array es igual a la posici�n del string el contador aumtenta.
+							if (compruebaLetras[j].equals(Character.toString(codigo.charAt(1)))) { //Si el indice del array es igual a la posición del string el contador aumtenta.
 								contador++;
 							}
 						}
 					}
 					if (i == 2) {
-							if ("-".equals(Character.toString(codigo.charAt(2)))) { //Si la posici�n 2 del string es igual a "-" aumenta el contador (Tiene q estar afuera del bucle j porq o si no suma las 27 veces.)
+							if ("-".equals(Character.toString(codigo.charAt(2)))) { //Si la posición 2 del string es igual a "-" aumenta el contador (Tiene q estar afuera del bucle j porq o si no suma las 27 veces.)
 								contador++;
 							}	
 						}
@@ -125,15 +125,15 @@ public class Start {
 					System.out.println("Su codigo no es valido, ingreselo nuevamente");
 				}
 			
-			if (contador == 7 && almacenaCodigos[0] == null) { //Si el c�digo es valido y no hay codigo en ese Array se ingresa y se sale del bucle.
+			if (contador == 7 && almacenaCodigos[0] == null) { //Si el código es valido y no hay codigo en ese Array se ingresa y se sale del bucle.
 				almacenaCodigos[0] = codigo; //Almacena el codigo en el indice [0] de la lista.
 				indiceCodigo = 0;
 				break;
 			}
 			
 			for (int k = 0; k < almacenaCodigos.length; k++) {
-				if (contador == 7 && codigo.equals(almacenaCodigos[k]) == true) { //Compara si el codigo est� repetido.
-					System.out.println("Tu codigo est� repetido vuelve a ingresarlo");
+				if (contador == 7 && codigo.equals(almacenaCodigos[k]) == true) { //Compara si el codigo está repetido.
+					System.out.println("Tu codigo está repetido vuelve a ingresarlo");
 					salir = false;
 					break;
 				}
@@ -142,18 +142,18 @@ public class Start {
 				}
 			}
 			
-			if (salir == true && contador == 7) { //Si esta condici�n se cumple se sale del bucle.
+			if (salir == true && contador == 7) { //Si esta condición se cumple se sale del bucle.
 				indiceCodigo++;
 				almacenaCodigos[indiceCodigo] = codigo; //Almacena el codigo en la lista.
 				break;
 			}
 		}
 
-		//Proceso de asignaci�n del nombre para el producto.
+		//Proceso de asignación del nombre para el producto.
 		System.out.println("Ingrese el nombre del producto");
 		String nombre = sc.nextLine().trim();
 		
-		//Proceso de validaci�n del nombre del producto.
+		//Proceso de validación del nombre del producto.
 		while (nombre.length() < 5 || nombre.length() > 20) { 
 			if (nombre.length() < 5) {
 				System.out.println("El nombre del producto es demasiado corto, ingreselo nuevamente");
@@ -165,12 +165,12 @@ public class Start {
 			}
 		}
 		
-		//Proceso de asignaci�n de la categoria del producto.
+		//Proceso de asignación de la categoria del producto.
 		System.out.println("Escriba la categoria del producto (Computadores; Tablets; Smartphones; Accesorios Generales; Red)");
 		String categoria = sc.nextLine().toLowerCase().trim();
 		
-		//Validaci�n de la categoria del producto.
-		//Repite mientras todo sea igual a false, (con que una condici�n sea igual a true el flujo de ejecuci�n se sale del bucle).
+		//Validación de la categoria del producto.
+		//Repite mientras todo sea igual a false, (con que una condición sea igual a true el flujo de ejecución se sale del bucle).
 		while (categoria.equalsIgnoreCase("Computadores") == false &&
 			categoria.equalsIgnoreCase("Tablets") == false &&
 			categoria.equalsIgnoreCase("Smartphones") == false &&
@@ -181,7 +181,7 @@ public class Start {
 			categoria = sc.nextLine().toLowerCase().trim();
 		}
 		
-		//Proceso de asignaci�n del valor del producto y de validaci�n (aprueba de errores mediante una excepci�n general).
+		//Proceso de asignación del valor del producto y de validación (aprueba de errores mediante una excepción general).
 		int valor = 0;
 		boolean validado = true;
 		while (validado) {
@@ -191,7 +191,7 @@ public class Start {
 				}
 				System.out.println("Ingrese el valor del producto");
 				valor=Integer.parseInt(sc.nextLine().trim());
-				while (valor < 1000 || valor >= 999999) { //Con que una condici�n se cumpla el bucle se vuelve a repetir.
+				while (valor < 1000 || valor >= 999999) { //Con que una condición se cumpla el bucle se vuelve a repetir.
 
 					if (valor < 1000) {
 						System.out.println("El valor del producto es demasiado bajo, ingreselo nuevamente");
@@ -206,13 +206,13 @@ public class Start {
 				cuentaValor++; //Cuenta la cantidad de valores ingresados.
 				
 			} catch (Exception ex) {
-				System.out.println("Debe ser un numero v�lido, ingrese el valor del producto nuevamente");
+				System.out.println("Debe ser un numero válido, ingrese el valor del producto nuevamente");
 				valor = -1;
 			}
 		}
 		
 		
-		Producto Producto = new Producto(codigo, nombre, categoria, valor); //Proceso de la instanciaci�n del Objeto utilizando el m�todo constructor.
+		Producto Producto = new Producto(codigo, nombre, categoria, valor); //Proceso de la instanciación del Objeto utilizando el método constructor.
 			
 		for (int i = 0; i < lista.length; i++) { //Llena la lista con los objetos instanciados.
 			if (lista[i] == null) {
@@ -227,23 +227,23 @@ public class Start {
 		
 			while (preguntaJson == true) {
 				System.out.println("Ingrese la ruta donde desea guardar su archivo json Ejemplo: C:\\Users\\Usuario\\Desktop");
-				rutaJson = sc.nextLine().trim(); //Pide ingresar la ruta donde se guardar� el archivo json (Solo pedir� la ruta una vez).
+				rutaJson = sc.nextLine().trim(); //Pide ingresar la ruta donde se guardará el archivo json (Solo pedirá la ruta una vez).
 				
-				try(FileWriter file = new FileWriter(rutaJson + "\\Productos.json")){ //Lo que esta en las comillas como se llamar� el archivo Json.
+				try (FileWriter file = new FileWriter(rutaJson + "\\Productos.json")){ //Lo que esta en las comillas como se llamará el archivo Json.
 					file.write(obj.toString());
 					file.flush();
 					preguntaJson = false;
 					break;
 					
 				} catch (Exception e) {
-					System.out.println("La ruta especificada no existe � no posee permisos de escritura, ingrese una nueva ruta");
+					System.out.println("La ruta especificada no existe ó no posee permisos de escritura, ingrese una nueva ruta");
 				}	
 			}
 		}
 
 	//Busca los productos en el archivo Json.
 	public static void buscarProducto() {
-		System.out.println("Ingrese el c�digo del producto que desea buscar");
+		System.out.println("Ingrese el código del producto que desea buscar");
 		String buscarCodigo = sc.nextLine().trim();
 		if (obj.get(buscarCodigo) != null){
 			System.out.println(obj.get(buscarCodigo));
@@ -255,7 +255,7 @@ public class Start {
 	
 	//Muestra todos los objetos almacenados en el archivo Json e imprime la cantidad de productos agregados.
 	public static void mostrarProductos(){
-		double promedio = sumaValor/cuentaValor;
+		double promedio = sumaValor / cuentaValor;
 		System.out.println(obj); //Imprimiendo el archivo Json.
 		System.out.println("Hay " + cantidadProductos + " productos existentes en el sistema");
 		System.out.println("El valor promedio de todos los productos ingresados es: " + (promedio));
