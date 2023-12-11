@@ -21,7 +21,6 @@ public class Start {
 	static boolean preguntaJson = true;
 	static String rutaJson = "";
 	
-	
 	//Menu de navegación.
 	public static boolean menu() { 
 		boolean continuar = true;
@@ -52,14 +51,13 @@ public class Start {
 	//Pide leer los datos necesarios para crear el objeto.
 	@SuppressWarnings("unchecked")
 	public static void ingresarProducto() { 
-		
+
 		//Proceso de ingreso y validación del código del producto.
 		while (true) {
-			
 			boolean salir = false;
 			
 			//Se verifica que se ingrese un codigo con 7 caracteres exactos.
-			while (true){
+			while (true) {
 				System.out.println("Ingrese el código del producto porfavor, ejemplo: AA-9999");
 				codigo = sc.nextLine().trim();
 				if (codigo.length() != 7) {
@@ -69,61 +67,61 @@ public class Start {
 					break;
 				}
 			}
-				int contador = 0; //Este contador tiene que ser igual a 7 para que se valide el codigo del producto (Se salga del bucle principal).
+
+			int contador = 0; //Este contador tiene que ser igual a 7 para que se valide el codigo del producto (Se salga del bucle principal).
+			for (int i = 0; i < 7; i++) { //Revisa las posisiones del string llamado Codigo.
 		
-				for (int i = 0; i < 7; i++) { //Revisa las posisiones del string llamado Codigo.
+				for (int j = 0; j < compruebaLetras.length; j++) { //Este bucle for anidado solo sirve para comprobar las primeras 2 letras del string llamado Codigo.
+					if (i == 0) { //Comprueba la posicion 0 del string llamado Codigo. 
+						if (compruebaLetras[j].equals(Character.toString(codigo.charAt(0)))) { //Si el indice del array es igual a la posición del string el contador aumtenta.
+							contador++;
+						}
+					}
+					if (i == 1) {
+						if (compruebaLetras[j].equals(Character.toString(codigo.charAt(1)))) { //Si el indice del array es igual a la posición del string el contador aumtenta.
+							contador++;
+						}
+					}
+				}
+				if (i == 2) {
+						if ("-".equals(Character.toString(codigo.charAt(2)))) { //Si la posición 2 del string es igual a "-" aumenta el contador (Tiene q estar afuera del bucle j porq o si no suma las 27 veces.)
+							contador++;
+						}	
+					}
+				if (i == 3) {
+					for(int k = 0; k < 10; k++) {
+						if (compruebaNumeros[k].equals(Character.toString(codigo.charAt(3)))) {
+							contador++;
+						}
+					}
+					
+				}
+				if (i == 4) {
+					for (int k = 0; k < 10; k++) {
+						if (compruebaNumeros[k].equals(Character.toString(codigo.charAt(4)))) {
+							contador++;
+						}
+					}
+				}
+				if (i == 5) {
+					for (int k = 0; k < 10; k++) {
+						if (compruebaNumeros[k].equals(Character.toString(codigo.charAt(5)))) {
+							contador++;
+						}
+					}
+				}
+				if (i == 6) {
+					for (int k = 0; k < 10; k++) {
+						if (compruebaNumeros[k].equals(Character.toString(codigo.charAt(6)))) {
+							contador++;
+						}
+					}
+				}
+			}
 			
-					for (int j = 0; j < compruebaLetras.length; j++) { //Este bucle for anidado solo sirve para comprobar las primeras 2 letras del string llamado Codigo.
-						if (i == 0) { //Comprueba la posicion 0 del string llamado Codigo. 
-							if (compruebaLetras[j].equals(Character.toString(codigo.charAt(0)))) { //Si el indice del array es igual a la posición del string el contador aumtenta.
-								contador++;
-							}
-						}
-						if (i == 1) {
-							if (compruebaLetras[j].equals(Character.toString(codigo.charAt(1)))) { //Si el indice del array es igual a la posición del string el contador aumtenta.
-								contador++;
-							}
-						}
-					}
-					if (i == 2) {
-							if ("-".equals(Character.toString(codigo.charAt(2)))) { //Si la posición 2 del string es igual a "-" aumenta el contador (Tiene q estar afuera del bucle j porq o si no suma las 27 veces.)
-								contador++;
-							}	
-						}
-					if (i == 3) {
-						for(int k = 0; k < 10; k++) {
-							if (compruebaNumeros[k].equals(Character.toString(codigo.charAt(3)))) {
-								contador++;
-							}
-						}
-						
-					}
-					if (i == 4) {
-						for (int k = 0; k < 10; k++) {
-							if (compruebaNumeros[k].equals(Character.toString(codigo.charAt(4)))) {
-								contador++;
-							}
-						}
-					}
-					if (i == 5) {
-						for (int k = 0; k < 10; k++) {
-							if (compruebaNumeros[k].equals(Character.toString(codigo.charAt(5)))) {
-								contador++;
-							}
-						}
-					}
-					if (i == 6) {
-						for (int k = 0; k < 10; k++) {
-							if (compruebaNumeros[k].equals(Character.toString(codigo.charAt(6)))) {
-								contador++;
-							}
-						}
-					}
-				}
-				
-				if (contador < 7) {
-					System.out.println("Su codigo no es valido, ingreselo nuevamente");
-				}
+			if (contador < 7) {
+				System.out.println("Su codigo no es valido, ingreselo nuevamente");
+			}
 			
 			if (contador == 7 && almacenaCodigos[0] == null) { //Si el código es valido y no hay codigo en ese Array se ingresa y se sale del bucle.
 				almacenaCodigos[0] = codigo; //Almacena el codigo en el indice [0] de la lista.
@@ -190,7 +188,7 @@ public class Start {
 					break;
 				}
 				System.out.println("Ingrese el valor del producto");
-				valor=Integer.parseInt(sc.nextLine().trim());
+				valor = Integer.parseInt(sc.nextLine().trim());
 				while (valor < 1000 || valor >= 999999) { //Con que una condición se cumpla el bucle se vuelve a repetir.
 
 					if (valor < 1000) {
@@ -245,7 +243,7 @@ public class Start {
 	public static void buscarProducto() {
 		System.out.println("Ingrese el código del producto que desea buscar");
 		String buscarCodigo = sc.nextLine().trim();
-		if (obj.get(buscarCodigo) != null){
+		if (obj.get(buscarCodigo) != null) {
 			System.out.println(obj.get(buscarCodigo));
 		}
 		else {
@@ -258,11 +256,10 @@ public class Start {
 		double promedio = sumaValor / cuentaValor;
 		System.out.println(obj); //Imprimiendo el archivo Json.
 		System.out.println("Hay " + cantidadProductos + " productos existentes en el sistema");
-		System.out.println("El valor promedio de todos los productos ingresados es: " + (promedio));
+		System.out.println("El valor promedio de todos los productos ingresados es: " + promedio);
 	}
 	
 	public static void main(String[] args) {
-		
-		while(menu()); //Repite el menu hasta que el valor que retorna deje de ser true.
+		while (menu()); //Repite el menu hasta que el valor que retorna deje de ser true.
 	}
 }
