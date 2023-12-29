@@ -14,19 +14,19 @@ public class Producto {
 		this.valor = Valor;
 	}
 	
-	public String getCodigoDeProducto(){
+	public String getCodigoDeProducto() {
 		return "El codigo del producto es: " + this.codigoDeProducto;
 	}
 	
-	public String getNombre(){
+	public String getNombre() {
 		return "El nombre del producto es: " + this.nombre;
 	}
 	
-	public String getCategoria(){
+	public String getCategoria() {
 		return "La categoria del producto es: " + this.categoria;
 	}
 	
-	public String getValor(){
+	public String getValor() {
 		return "El valor del producto es: " + this.valor;
 	}
 

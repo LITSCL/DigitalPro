@@ -173,7 +173,7 @@ public class Start {
 			categoria.equalsIgnoreCase("Tablets") == false &&
 			categoria.equalsIgnoreCase("Smartphones") == false &&
 			categoria.equalsIgnoreCase("Accesorios Generales") == false &&
-			categoria.equalsIgnoreCase("Red") == false){
+			categoria.equalsIgnoreCase("Red") == false) {
 			
 			System.out.println("Escribiste una categoria que no existe, escribela nuevamente");
 			categoria = sc.nextLine().toLowerCase().trim();
