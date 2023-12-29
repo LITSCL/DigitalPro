@@ -6,17 +6,12 @@ public class Producto {
 	private String categoria;
 	private int valor;
 	
-	//Método constructor.
-	public Producto(String Codigo, String Nombre, String Categoria, int Valor){
+	//MÃ©todo constructor.
+	public Producto(String Codigo, String Nombre, String Categoria, int Valor) {
 		this.codigoDeProducto = Codigo;
 		this.nombre = Nombre;
 		this.categoria = Categoria;
 		this.valor = Valor;
-	}
-	
-	public String toString() {
-		String valorString = Integer.toString(this.valor);
-		return "Codigo: " + this.codigoDeProducto + " Nombre: " + nombre + " Categoria: " + categoria + " Valor: " + valorString;
 	}
 	
 	public String getCodigoDeProducto(){
@@ -33,5 +28,10 @@ public class Producto {
 	
 	public String getValor(){
 		return "El valor del producto es: " + this.valor;
+	}
+
+	public String toString() {
+		String valorString = Integer.toString(this.valor);
+		return "Codigo: " + this.codigoDeProducto + " Nombre: " + nombre + " Categoria: " + categoria + " Valor: " + valorString;
 	}
 }
