@@ -10,7 +10,7 @@ public class Start {
 	static Scanner sc = new Scanner(System.in);
 	static String compruebaLetras[] = {"A", "B", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 	static String compruebaNumeros[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
-	static Producto lista[]=new Producto[1000000];
+	static Producto lista[] = new Producto[1000000];
 	static String codigo = "";
 	static int numero = 0;
 	static int cantidadProductos = 0;
@@ -84,10 +84,10 @@ public class Start {
 					}
 				}
 				if (i == 2) {
-						if ("-".equals(Character.toString(codigo.charAt(2)))) { //Si la posición 2 del string es igual a "-" aumenta el contador (Tiene q estar afuera del bucle j porq o si no suma las 27 veces.)
-							contador++;
-						}	
-					}
+					if ("-".equals(Character.toString(codigo.charAt(2)))) { //Si la posición 2 del string es igual a "-" aumenta el contador (Tiene q estar afuera del bucle j porq o si no suma las 27 veces.)
+						contador++;
+					}	
+				}
 				if (i == 3) {
 					for(int k = 0; k < 10; k++) {
 						if (compruebaNumeros[k].equals(Character.toString(codigo.charAt(3)))) {
@@ -184,7 +184,7 @@ public class Start {
 		boolean validado = true;
 		while (validado) {
 			try {
-				if(valor > 1000 && valor <= 999999) {
+				if (valor > 1000 && valor <= 999999) {
 					break;
 				}
 				System.out.println("Ingrese el valor del producto");
@@ -232,7 +232,6 @@ public class Start {
 					file.flush();
 					preguntaJson = false;
 					break;
-					
 				} catch (Exception e) {
 					System.out.println("La ruta especificada no existe ó no posee permisos de escritura, ingrese una nueva ruta");
 				}	
