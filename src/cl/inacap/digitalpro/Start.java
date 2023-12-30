@@ -29,21 +29,21 @@ public class Start {
 		System.out.println("3. Mostrar productos");
 		System.out.println("0. Salir");
 		switch (sc.nextLine().trim()) {
-		case "1":
-			ingresarProducto();
-			break;
-		case "2":
-			buscarProducto();
-			break;
-		case "3":
-			mostrarProductos();
-			break;
-		case "0":
-			continuar = false;
-			break;
-		default:
-			System.out.println("Opcion incorrecta");
-			break;
+			case "1":
+				ingresarProducto();
+				break;
+			case "2":
+				buscarProducto();
+				break;
+			case "3":
+				mostrarProductos();
+				break;
+			case "0":
+				continuar = false;
+				break;
+			default:
+				System.out.println("Opcion incorrecta");
+				break;
 		}
 		return continuar;
 	}
