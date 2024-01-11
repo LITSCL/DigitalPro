@@ -223,20 +223,20 @@ public class Start {
 		
 		cantidadProductos++;
 		
-			while (preguntaJson == true) {
-				System.out.println("Ingrese la ruta donde desea guardar su archivo json Ejemplo: C:\\Users\\Usuario\\Desktop");
-				rutaJson = sc.nextLine().trim(); //Pide ingresar la ruta donde se guardará el archivo json (Solo pedirá la ruta una vez).
-				
-				try (FileWriter file = new FileWriter(rutaJson + "\\Productos.json")){ //Lo que esta en las comillas como se llamará el archivo Json.
-					file.write(obj.toString());
-					file.flush();
-					preguntaJson = false;
-					break;
-				} catch (Exception e) {
-					System.out.println("La ruta especificada no existe ó no posee permisos de escritura, ingrese una nueva ruta");
-				}	
-			}
+		while (preguntaJson == true) {
+			System.out.println("Ingrese la ruta donde desea guardar su archivo json Ejemplo: C:\\Users\\Usuario\\Desktop");
+			rutaJson = sc.nextLine().trim(); //Pide ingresar la ruta donde se guardará el archivo json (Solo pedirá la ruta una vez).
+			
+			try (FileWriter file = new FileWriter(rutaJson + "\\Productos.json")) { //Lo que esta en las comillas como se llamará el archivo Json.
+				file.write(obj.toString());
+				file.flush();
+				preguntaJson = false;
+				break;
+			} catch (Exception e) {
+				System.out.println("La ruta especificada no existe ó no posee permisos de escritura, ingrese una nueva ruta");
+			}	
 		}
+	}
 
 	//Busca los productos en el archivo Json.
 	public static void buscarProducto() {
